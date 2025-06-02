@@ -1,0 +1,6 @@
+@ServiceStaionV_WebAPI_HostAddress = http://localhost:5025
+
+GET {{ServiceStaionV_WebAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
