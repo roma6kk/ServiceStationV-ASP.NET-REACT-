@@ -1,0 +1,101 @@
+.error-message {
+  color: red;
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+}
+
+.form-footer {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.95rem;
+}
+.form-footer a {
+  color: #007bff;
+  text-decoration: none;
+}
+.form-footer a:hover {
+  text-decoration: underline;
+}
+
+input.error {
+  border: 1px solid red;
+}
+
+.register-link {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.link-text {
+  color: #007bff;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.link-text:hover {
+  color: #0056b3;
+}
+
+
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, #f8f8f8, #e8ecf1);
+}
+
+.register-form {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+}
+
+.register-form h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+.register-form label {
+  display: block;
+  margin-bottom: 6px;
+  color: #444;
+  font-weight: 500;
+}
+
+.register-form input {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 18px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  transition: border 0.3s ease;
+}
+
+.register-form input:focus {
+  border-color: #4a90e2;
+  outline: none;
+}
+
+.register-form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #4a90e2;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.register-form button:hover {
+  background-color: #357ab8;
+}

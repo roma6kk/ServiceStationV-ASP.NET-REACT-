@@ -1,0 +1,141 @@
+.home-page {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #1c1c1c;
+  background-color: #f7f7f7;
+  overflow: hidden;
+}
+
+/* Баннер */
+.banner {
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+}
+.banner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Секция о нас */
+.about-section {
+  padding: 60px 30px;
+  background-color: #ffffff;
+  text-align: center;
+}
+.about-section h2 {
+  font-size: 32px;
+  margin-bottom: 70px;
+}
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.about-block {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+.about-block img {
+  width: 555px;
+  border-radius: 10px;
+}
+.about-block p {
+  max-width: 500px;
+  font-size: 24px;
+  text-align: left;
+}
+
+/* Секция услуг */
+.services-section {
+  padding: 60px 40px;
+  text-align: center;
+  background-color: #eaf0f6;
+}
+.services-section h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+.service-cards {
+   display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.service-card {
+    background-color: white;
+    border: 2px solid #CDCDCD;
+    border-radius: 8px;
+    border-color: #003366;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+      text-align: left; 
+
+}
+
+.service-card:hover {
+    transform: scale(1.05);
+}
+
+.service-card img {
+    width: 95%;
+    height: 200px;
+    margin: 10px 10px 0px 10px;
+    border-radius: 5px;
+
+}
+
+.service-card h3 {
+    font-size: 18px;
+    margin: 10px;
+}
+
+.service-card p {
+    font-size: 14px;
+    margin: 5px 10px;
+}
+.service-card span {
+  font-weight: bold;
+}
+
+.service-details {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 10px;
+}
+
+
+/* Секция отзывов */
+.reviews-section {
+  padding: 60px 40px;
+  text-align: center;
+}
+.reviews-section h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+.review-cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+.review-card {
+  background-color: #003468;
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  width: 250px;
+}
+.review-card h4 {
+  margin-bottom: 10px;
+}
+.review-card p {
+  font-size: 14px;
+  line-height: 1.4;
+}
