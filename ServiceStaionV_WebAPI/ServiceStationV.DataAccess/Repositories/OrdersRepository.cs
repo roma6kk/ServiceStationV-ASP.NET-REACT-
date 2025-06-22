@@ -38,6 +38,50 @@ namespace ServiceStationV.DataAccess.Repositories
             return orderEntity == null ? null : ToModel(orderEntity);
         }
 
+        public async Task<List<Order>> GetByUserId(Guid id)
+        {
+            var orderEntities = await _context.Orders
+                .AsNoTracking()
+                .Where(o => o.CustomerId == id)
+                .Include(o => o.ServiceItems)
+                    .ThenInclude(os => os.Service)
+                .ToListAsync();
+
+            var orders = new List<Order>();
+
+            foreach (var entity in orderEntities)
+            {
+                var serviceIds = entity.ServiceItems?
+                    .Where(os => os.Service != null)
+                    .Select(os => os.Service!.Id)
+                    .ToList() ?? new List<Guid>();
+
+
+                var (order, error) = Order.Create(
+                    entity.Id,
+                    entity.CustomerId,
+                    entity.VehicleInfo,
+                    serviceIds,
+                    entity.TotalPrice,
+                    entity.Status,
+                    entity.CreatedAt,
+                    entity.UpdatedAt,
+                    entity.PlannedDate,
+                    entity.CompletedAt,
+                    entity.Comment);
+
+                if (order != null)
+                {
+                    orders.Add(order);
+                }
+                else
+                {
+                    throw new Exception("Orders not found");
+                }
+            }
+
+            return orders;
+        }
 
         public async Task<Guid> Create(Order order)
         {

@@ -6,7 +6,7 @@ namespace ServiceStationV.Contracts
         public Guid Id { get; set; }
         public Guid CustomerId { get; set; }
         public string VehicleInfo { get; set; } = string.Empty;
-        public List<Guid> ServiceIds { get; set; } = new();
+        public List<ServicesResponse> ServiceItems { get; set; } = new();
         public decimal TotalPrice { get; set; }
         public string Status { get; set; } = string.Empty;
         public DateTime CreatedAt { get; set; }

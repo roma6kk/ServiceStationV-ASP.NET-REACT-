@@ -27,6 +27,11 @@ namespace ServiceStationV.Application.Services
             return await _ordersRepository.GetById(id);
         }
 
+        public async Task<List<Order>> GetOrdersByUserId(Guid id)
+        {
+            return await _ordersRepository.GetByUserId(id);
+        }
+
         public async Task<Guid> CreateOrder(Guid userId, OrderRequest orderRequest)    
         {
             var (order, error) = Order.Create(Guid.NewGuid(), userId, orderRequest.VehicleInfo, orderRequest.ServiceIds, orderRequest.TotalPrice, orderRequest.Status, DateTime.UtcNow, null, null, null, orderRequest.Comment);

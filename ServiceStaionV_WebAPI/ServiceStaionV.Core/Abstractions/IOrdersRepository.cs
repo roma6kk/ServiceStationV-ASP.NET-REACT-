@@ -8,5 +8,6 @@ public interface IOrdersRepository
     Task<bool> Delete(Guid id);
     Task<List<Order>> Get();
     Task<Order?> GetById(Guid id);
+    Task<List<Order>> GetByUserId(Guid id);
     Task<bool> Update(Guid id, string vehicleInfo, List<Guid> serviceIds, decimal totalPrice, string status, DateTime? plannedDate, DateTime? completedAt, string? comment);
 }
