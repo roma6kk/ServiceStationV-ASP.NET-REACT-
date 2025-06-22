@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceStationV.Application
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceStationV.Infrastructure", "ServiceStationV.Infrastructure\ServiceStationV.Infrastructure.csproj", "{602C9427-88E9-447C-858C-5082E538B0DF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceStationV.Contracts", "ServiceStationV.Contracts\ServiceStationV.Contracts.csproj", "{696ABD97-58D1-42CB-95BB-593F851C0104}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{602C9427-88E9-447C-858C-5082E538B0DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{602C9427-88E9-447C-858C-5082E538B0DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{602C9427-88E9-447C-858C-5082E538B0DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{696ABD97-58D1-42CB-95BB-593F851C0104}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{696ABD97-58D1-42CB-95BB-593F851C0104}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{696ABD97-58D1-42CB-95BB-593F851C0104}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{696ABD97-58D1-42CB-95BB-593F851C0104}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

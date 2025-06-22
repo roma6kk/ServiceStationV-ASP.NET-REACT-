@@ -1,0 +1,181 @@
+/* Service.css */
+.service-container {
+  background-color: #f8fafc;
+  min-height: calc(100vh - 120px);
+  padding: 2rem 0;
+}
+
+.service-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.service-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.service-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+}
+
+.price-badge {
+  background-color: #3b82f6;
+  color: white;
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 1.25rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.service-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  background-color: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.service-image-container {
+  overflow: hidden;
+  border-radius: 0.75rem;
+}
+
+.service-image {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.service-image:hover {
+  transform: scale(1.02);
+}
+
+.service-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+.description-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #475569;
+  margin: 0;
+}
+
+.service-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.action-button {
+  padding: 0.875rem 1.75rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.action-button.primary {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.action-button.primary:hover {
+  background-color: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.5);
+}
+
+.action-button.secondary {
+  background-color: #f1f5f9;
+  color: #334155;
+}
+
+.action-button.secondary:hover {
+  background-color: #e2e8f0;
+  transform: translateY(-1px);
+}
+
+.loading-spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top: 4px solid #3b82f6;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 2rem auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error-message,
+.not-found-message {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.25rem;
+  color: #ef4444;
+  background-color: #fee2e2;
+  border-radius: 0.5rem;
+  max-width: 600px;
+  margin: 2rem auto;
+}
+
+@media (min-width: 768px) {
+  .service-content {
+    flex-direction: row;
+  }
+  
+  .service-image-container {
+    flex: 1;
+  }
+  
+  .service-info {
+    flex: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .service-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .service-actions {
+    flex-direction: column;
+  }
+  
+  .action-button {
+    width: 100%;
+  }
+}

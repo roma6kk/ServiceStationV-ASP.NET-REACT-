@@ -1,6 +1,6 @@
 ﻿using ServiceStationV.Core.Models;
 
-namespace ServiceStationV.Application.Services
+namespace ServiceStationV.Core.Abstractions
 {
     public interface ICartService
     {

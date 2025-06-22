@@ -12,6 +12,8 @@ namespace ServiceStationV.DataAccess.Entities
 
         public ICollection<UserFavouriteEntity> FavouritedByUsers { get; set; } = new List<UserFavouriteEntity>();
         public ICollection<CartEntity> CartedByUsers { get; set; } = new List<CartEntity>();
+        public ICollection<OrderServiceEntity> OrderItems { get; set; } = new List<OrderServiceEntity>();
+
 
     }
 

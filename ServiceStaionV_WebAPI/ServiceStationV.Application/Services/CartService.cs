@@ -1,4 +1,5 @@
-﻿using ServiceStationV.Core.Models;
+﻿using ServiceStationV.Core.Abstractions;
+using ServiceStationV.Core.Models;
 using ServiceStationV.DataAccess.Repositories;
 using System;
 using System.Collections.Generic;

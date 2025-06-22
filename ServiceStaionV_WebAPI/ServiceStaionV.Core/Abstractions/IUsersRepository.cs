@@ -1,6 +1,6 @@
 ﻿using ServiceStationV.Core.Models;
 
-namespace ServiceStationV.DataAccess.Repositories
+namespace ServiceStationV.Core.Abstractions
 {
     public interface IUsersRepository
     {
@@ -8,7 +8,7 @@ namespace ServiceStationV.DataAccess.Repositories
         public  Task<bool> ExistedEmailOrPhone(string email, string phone);
         public Task<User> GetByEmail(string email);
         public Task<User> GetByPhone(string phone);
-
+        public Task<User?> GetById(Guid id);
 
     }
 }

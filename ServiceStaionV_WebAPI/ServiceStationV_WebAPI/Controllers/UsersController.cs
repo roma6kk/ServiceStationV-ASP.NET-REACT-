@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 using ServiceStationV.Application.Services;
-using ServiceStationV_WebAPI.Contracts;
+using ServiceStationV.Contracts;
+using ServiceStationV.Core.Abstractions;
 
 namespace ServiceStationV_WebAPI.Controllers
 {
@@ -32,7 +33,8 @@ namespace ServiceStationV_WebAPI.Controllers
 
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginUserRequest request)
-        {   try
+        {
+            try
             {
                 var token = await _usersService.Login(request.PhoneNumber, request.Password);
 
@@ -42,6 +44,25 @@ namespace ServiceStationV_WebAPI.Controllers
             {
                 return BadRequest(ex.Message);
             }
+        }
+        [HttpGet]
+        public async Task<ActionResult<UserInfoResponse>> GetUserById()
+        {
+            try
+            {
+                var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId")?.Value;
+
+                if (string.IsNullOrEmpty(userIdClaim) || !Guid.TryParse(userIdClaim, out var userId))
+                {
+                    throw new UnauthorizedAccessException("User ID not found in token");
+                }
+
+                var user = await _usersService.GetById(userId);
+
+                return Ok(new UserInfoResponse(user.Id, user.UserName, user.Email, user.PhoneNumber));
+            }
+            catch (Exception ex)
+            { return NotFound(ex.Message); }
         }
     }
 }

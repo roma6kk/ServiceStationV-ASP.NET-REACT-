@@ -1,6 +1,6 @@
 ﻿using ServiceStationV.Core.Models;
 
-namespace ServiceStationV.Infrastructure
+namespace ServiceStationV.Core.Abstractions
 {
     public interface IJwtProvider
     {

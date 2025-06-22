@@ -1,4 +1,5 @@
-﻿using ServiceStationV.Core.Models;
+﻿using ServiceStationV.Core.Abstractions;
+using ServiceStationV.Core.Models;
 using ServiceStationV.DataAccess.Repositories;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,14 @@ namespace ServiceStationV.Application.Services
         {
             return await _servicesRepository.Get();
         }
-
+        public async Task<Service> GetServiceById(Guid id)
+        {
+            return await _servicesRepository.GetById(id);
+        }
+        public async Task<List<Service>> GetServicesByIds(List<Guid> ids)
+        {
+            return await _servicesRepository.GetByIds(ids);
+        }
         public async Task<Guid> CreateService(Service service)
         {
             return await _servicesRepository.Create(service);

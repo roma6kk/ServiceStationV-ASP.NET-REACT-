@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using ServiceStationV.Contracts;
 using ServiceStationV.Core.Abstractions;
 using ServiceStationV.Core.Models;
 using ServiceStationV.DataAccess;
-using ServiceStationV_WebAPI.Contracts;
 using System;
 
 namespace ServiceStationV_WebAPI.Controllers
@@ -30,7 +30,7 @@ namespace ServiceStationV_WebAPI.Controllers
             var services = await _favouriteService.Get(userId);
             var response = services.Select(s => new ServicesResponse(s.Id, s.Name, s.Description, s.Price, s.ImagePath));
 
-            return Ok(services);
+            return Ok(response);
         }
 
         [HttpPost("{serviceId}")]

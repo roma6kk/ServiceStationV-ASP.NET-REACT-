@@ -15,6 +15,8 @@ namespace ServiceStationV.DataAccess
         public DbSet<UserFavouriteEntity> UserFavourites { get; set; }
         public DbSet<CartEntity> Carts { get; set; }
 
+        public DbSet<OrderEntity> Orders { get; set; }
+        public DbSet<OrderServiceEntity> OrderServices { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -23,6 +25,8 @@ namespace ServiceStationV.DataAccess
             modelBuilder.ApplyConfiguration(new UserConfiguration());
             modelBuilder.ApplyConfiguration(new ServiceConfiguration());
             modelBuilder.ApplyConfiguration(new CartConfiguration());
+            modelBuilder.ApplyConfiguration(new OrderConfiguration());
+            modelBuilder.ApplyConfiguration(new OrderServiceConfiguration());
 
         }
 

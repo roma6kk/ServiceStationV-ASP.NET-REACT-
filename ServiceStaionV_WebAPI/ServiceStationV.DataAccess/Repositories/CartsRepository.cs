@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ServiceStationV.Core.Abstractions;
 using ServiceStationV.Core.Models;
 using ServiceStationV.DataAccess.Entities;
 using System;
@@ -20,7 +21,7 @@ namespace ServiceStationV.DataAccess.Repositories
         {
             Console.WriteLine($"Получен serviceId: {serviceId}");
 
-            bool exists = await _context.UserFavourites
+            bool exists = await _context.Carts
                 .AsNoTracking()
                 .AnyAsync(uf => uf.ServiceId == serviceId && uf.UserId == userId);
             Console.WriteLine($"Существует в базе? {exists}");
@@ -40,42 +41,42 @@ namespace ServiceStationV.DataAccess.Repositories
                 throw new InvalidOperationException("Эта услуга уже в корзине");
             }
 
-            var favourite = new UserFavouriteEntity
+            var cart = new CartEntity
             {
                 ServiceId = serviceId,
                 UserId = userId
             };
 
-            await _context.UserFavourites.AddAsync(favourite);
+            await _context.Carts.AddAsync(cart);
             await _context.SaveChangesAsync();
         }
 
         public async Task RemoveService(Guid serviceId, Guid userId)
         {
-            var favourite = await _context.UserFavourites
+            var cart = await _context.Carts  
                 .FirstOrDefaultAsync(f => f.ServiceId == serviceId && f.UserId == userId);
 
-            if (favourite != null)
+            if (cart != null)
             {
-                _context.UserFavourites.Remove(favourite);
+                _context.Carts.Remove(cart);
                 await _context.SaveChangesAsync();
             }
         }
 
         public async Task RemoveAllServices(Guid userId)
         {
-            var favourites = await _context.UserFavourites
+            var carts = await _context.Carts
                 .Where(f => f.UserId == userId)
                 .ToListAsync();
 
-            _context.UserFavourites.RemoveRange(favourites);
+            _context.Carts.RemoveRange(carts);
 
             await _context.SaveChangesAsync();
         }
 
         public async Task<List<Service>> Get(Guid userId)
         {
-            return await _context.UserFavourites
+            return await _context.Carts
                 .Where(f => f.UserId == userId)
                 .Select(f => new Service(
                     f.Service.Id,

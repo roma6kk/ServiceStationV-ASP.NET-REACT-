@@ -13,6 +13,8 @@ namespace ServiceStationV.DataAccess.Entities
 
         public ICollection<UserFavouriteEntity> FavouriteList { get; set; } = new List<UserFavouriteEntity>();
         public ICollection<CartEntity> Cart { get; set; } = new List<CartEntity>();
+        public ICollection<OrderEntity> Orders { get; set; } = new List<OrderEntity>();
+
 
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using ServiceStationV.Core.Abstractions;
 using ServiceStationV.Core.Models;
 using System;
 using System.IdentityModel.Tokens.Jwt;
@@ -25,7 +26,7 @@ namespace ServiceStationV.Infrastructure
 
             var token = new JwtSecurityToken(
                 claims: claims,
-                expires: DateTime.UtcNow.AddHours(_options.ExpitesHours),
+                expires: DateTime.UtcNow.AddHours(_options.ExpiresHours),
                 signingCredentials: signingCredentials);
 
             var tokenHandler = new JwtSecurityTokenHandler();

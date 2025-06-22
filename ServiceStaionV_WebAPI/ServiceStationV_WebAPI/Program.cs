@@ -8,14 +8,12 @@ using ServiceStationV.DataAccess.Repositories;
 using ServiceStationV.Infrastructure;
 using System.Text;
 
-//using ServiceStationV_WebAPI.Endpoints;
-
+ 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
+ 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -59,7 +57,8 @@ builder.Services.AddScoped<IFavouriteService, FavouriteService>();
 builder.Services.AddScoped<IFavouriteServicesRepository, FavouriteServicesRepository>();
 builder.Services.AddScoped<ICartService, CartService>();
 builder.Services.AddScoped<ICartRepository, CartsRepository>();
-
+builder.Services.AddScoped<IOrdersService, OrdersService>();
+builder.Services.AddScoped<IOrdersRepository, OrdersRepository>();
 // Включение CORS -----------------------------------
 builder.Services.AddCors(options =>
 {
@@ -88,6 +87,6 @@ app.UseAuthorization();
 
 
 app.MapControllers();
-//app.MapUsersEndpoints();
+
 
 app.Run();

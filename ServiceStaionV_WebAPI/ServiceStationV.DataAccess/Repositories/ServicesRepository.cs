@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ServiceStationV.Core.Abstractions;
 using ServiceStationV.Core.Models;
 using ServiceStationV.DataAccess.Entities;
 using System;
@@ -26,6 +27,29 @@ namespace ServiceStationV.DataAccess.Repositories
                                                     imagePath: s.ImagePath).Service).ToList();
             return services;
         }
+
+        public async Task<Service> GetById(Guid id)
+        {
+            var serviceEntity = await _context.Services.AsNoTracking().FirstOrDefaultAsync(s => s.Id == id);
+            return Service.Create(id: serviceEntity.Id,
+                name: serviceEntity.Name,
+                description: serviceEntity.Description,
+                price: serviceEntity.Price,
+                imagePath: serviceEntity.ImagePath).Service;
+        }
+
+        public async Task<List<Service>> GetByIds(List<Guid> ids)
+        {
+            var serviceEntities = await _context.Services
+                .AsNoTracking()
+                .Where(s => ids.Contains(s.Id))
+                .ToListAsync();
+
+            return serviceEntities
+                .Select(e => Service.Create(e.Id, e.Name, e.Description, e.Price, e.ImagePath).Service)
+                .ToList();
+        }
+
 
         public async Task<Guid> Create(Service service)
         {

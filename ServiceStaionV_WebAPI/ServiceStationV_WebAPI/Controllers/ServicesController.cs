@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ServiceStationV.Application.Services;
+using ServiceStationV.Contracts;
+using ServiceStationV.Core.Abstractions;
 using ServiceStationV.Core.Models;
-using ServiceStationV_WebAPI.Contracts;
 
 namespace ServiceStationV_WebAPI.Controllers
 {
@@ -23,6 +24,14 @@ namespace ServiceStationV_WebAPI.Controllers
             var response = services.Select(s => new ServicesResponse(s.Id, s.Name, s.Description, s.Price, s.ImagePath));
 
             return Ok(response);
+        }
+
+        [HttpGet("{id:Guid}")]
+        public async Task<ActionResult<ServicesResponse>> GetService(Guid id)
+        {
+            var service = await _servicesService.GetServiceById(id);
+
+            return Ok(new ServicesResponse(service.Id, service.Name, service.Description, service.Price, service.ImagePath));
         }
         [Authorize(Roles = ServiceStationV.Core.Models.User.ADMIN_ROLE)]
         [HttpPost]

@@ -1,4 +1,4 @@
-﻿namespace ServiceStationV.Infrastructure
+﻿namespace ServiceStationV.Core.Abstractions
 {
     public interface IPasswordHasher
     {

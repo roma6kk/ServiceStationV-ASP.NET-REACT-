@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ServiceStationV.Application.Services;
-using ServiceStationV_WebAPI.Contracts;
+using ServiceStationV.Contracts;
+using ServiceStationV.Core.Abstractions;
 
 namespace ServiceStationV_WebAPI.Controllers
 {
@@ -27,11 +28,11 @@ namespace ServiceStationV_WebAPI.Controllers
             var services = await _cartService.Get(userId);
             var response = services.Select(s => new ServicesResponse(s.Id, s.Name, s.Description, s.Price, s.ImagePath));
 
-            return Ok(services);
+            return Ok(response);
         }
 
         [HttpPost("{serviceId}")]
-        public async Task<IActionResult> AddToFavourite(Guid serviceId)
+        public async Task<IActionResult> AddToCart(Guid serviceId)
         {
             var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId")?.Value;
 
@@ -47,13 +48,13 @@ namespace ServiceStationV_WebAPI.Controllers
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Ошибка добавления в избранное: {ex.Message}");
+                Console.WriteLine($"Ошибка добавления в корзину: {ex.Message}");
                 return BadRequest(ex.Message);
             }
         }
 
         [HttpDelete("{serviceId}")]
-        public async Task<IActionResult> RemoveFromFavourites(Guid serviceId)
+        public async Task<IActionResult> RemoveFromCart(Guid serviceId)
         {
             var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId")?.Value;
 

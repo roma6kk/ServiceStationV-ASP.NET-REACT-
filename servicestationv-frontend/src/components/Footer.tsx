@@ -12,7 +12,7 @@ function Footer() {
         <a href="#">Профиль</a>
         <a href="#" className="active">SERVICE</a>
         <a href="#" onClick={() => navigate("/about")}>О нас</a>
-        <a href="#">Корзина</a>
+        <a href="#" onClick={() => navigate("/cart")}>Корзина</a>
       </nav>
       <p>&copy; 2010 – 2025 Service Station V. Все права защищены.</p>
     </footer>

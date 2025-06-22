@@ -1,4 +1,5 @@
 ﻿using ServiceStationV.Core;
+using ServiceStationV.Core.Abstractions;
 namespace ServiceStationV.Infrastructure
 {
     public class PasswordHasher : IPasswordHasher

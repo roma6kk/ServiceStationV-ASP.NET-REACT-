@@ -1,10 +1,12 @@
 ﻿using Npgsql.EntityFrameworkCore.PostgreSQL.Infrastructure.Internal;
+using ServiceStationV.Core.Abstractions;
 using ServiceStationV.Core.Models;
 using ServiceStationV.DataAccess.Repositories;
 using ServiceStationV.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ServiceStationV.DataAccess.Entities;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -50,6 +52,13 @@ namespace ServiceStationV.Application.Services
             var token = _jwtProvider.GenerateToken(user);
 
             return token;
+        }
+
+        public async Task<User> GetById(Guid id)
+        {
+            var user = await _usersRepository.GetById(id);
+
+            return user ?? throw new Exception($"User with id '{id}' not found.");
         }
     }
 }

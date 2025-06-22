@@ -1,6 +1,6 @@
 ﻿using ServiceStationV.Core.Models;
 
-namespace ServiceStationV.DataAccess.Repositories
+namespace ServiceStationV.Core.Abstractions
 {
     public interface ICartRepository
     {

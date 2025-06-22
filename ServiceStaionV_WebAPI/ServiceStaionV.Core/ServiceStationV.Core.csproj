@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ServiceStationV.Contracts\ServiceStationV.Contracts.csproj" />
+  </ItemGroup>
+
 </Project>

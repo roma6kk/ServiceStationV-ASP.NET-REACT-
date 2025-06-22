@@ -18,12 +18,9 @@
   <ItemGroup>
     <ProjectReference Include="..\ServiceStaionV.Core\ServiceStationV.Core.csproj" />
     <ProjectReference Include="..\ServiceStationV.Application\ServiceStationV.Application.csproj" />
+    <ProjectReference Include="..\ServiceStationV.Contracts\ServiceStationV.Contracts.csproj" />
     <ProjectReference Include="..\ServiceStationV.DataAccess\ServiceStationV.DataAccess.csproj" />
     <ProjectReference Include="..\ServiceStationV.Infrastructure\ServiceStationV.Infrastructure.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Endpoints\" />
   </ItemGroup>
 
 </Project>

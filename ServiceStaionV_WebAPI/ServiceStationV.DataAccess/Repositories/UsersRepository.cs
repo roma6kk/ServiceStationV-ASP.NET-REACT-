@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ServiceStationV.Core.Abstractions;
 using ServiceStationV.Core.Models;
 using ServiceStationV.DataAccess.Entities;
 using System;
@@ -57,7 +58,7 @@ namespace ServiceStationV.DataAccess.Repositories
 
             if (userEntity == null)
             {
-                throw new ArgumentException($"User with phone number '{email}' not found.");
+                throw new ArgumentException($"User with email '{email}' not found.");
             }
 
             return User.Create(userEntity.Id, userEntity.UserName, userEntity.Email, userEntity.PhoneNumber, userEntity.PasswordHash);
@@ -77,6 +78,18 @@ namespace ServiceStationV.DataAccess.Repositories
             }
 
             return true;
+        }
+
+        public async Task<User?> GetById(Guid id)
+        {
+            var userEntity =  await _context.Users
+                .AsNoTracking()
+                .FirstOrDefaultAsync(u => u.Id == id);
+            if ((userEntity == null))
+            {
+                return null;
+            }
+            return User.Create(userEntity.Id, userEntity.UserName, userEntity.Email, userEntity.PhoneNumber, userEntity.PasswordHash);
         }
     }
 }

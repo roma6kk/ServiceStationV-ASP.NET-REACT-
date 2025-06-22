@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ServiceStationV_WebAPI.Contracts
+namespace ServiceStationV.Contracts
 {
     public record RegisterUserRequest(
         [Required(ErrorMessage = "UserName is required")]
